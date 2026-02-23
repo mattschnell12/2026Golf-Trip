@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dells Golf Trip 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background: #0a1a0a; color: #e8f5e9; min-height: 100vh; }
+
+  header {
+    background: url('https://share.google/RBAB6nqTdUrBdoYSE') center/cover no-repeat;
+    padding: 50px 20px 40px;
+    text-align: center;
+    border-bottom: 3px solid #4caf50;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '⛳';
+    font-size: 120px;
+    position: absolute;
+    opacity: 0.07;
+    top: -10px; right: -10px;
+  }
+  .flag { font-size: 48px; margin-bottom: 10px; }
+  header h1 { font-size: 2.8em; color: #a5d6a7; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
+  header p { color: #81c784; font-size: 1.1em; margin-top: 8px; letter-spacing: 1px; text-shadow: 0 1px 4px rgba(0,0,0,0.8); }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 30px 20px; }
+
+  .card {
+    background: #122012;
+    border: 1px solid #2e5c2e;
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+  .card h2 {
+    color: #a5d6a7;
+    font-size: 1.3em;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #2e5c2e;
+    padding-bottom: 12px;
+  }
+
+  /* Crew */
+  .crew-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+  .crew-member {
+    background: #1a3a1a;
+    border: 1px solid #4caf50;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-weight: 600;
+    color: #c8e6c9;
+    font-size: 0.95em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    text-align: center;
+    width: calc(25% - 8px);
+    flex: none;
+  }
+  .handicap {
+    font-size: 0.75em;
+    font-weight: 400;
+    color: #69f0ae;
+    font-style: italic;
+  }
+
+  /* Lodging */
+  .lodging-amount { font-size: 2.2em; color: #66bb6a; font-weight: 700; }
+  .lodging-sub { color: #81c784; margin: 6px 0 16px; }
+  .pay-options { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
+  .pay-option {
+    flex: 1;
+    min-width: 200px;
+    background: #0d2b0d;
+    border: 1px solid #388e3c;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .pay-option .amount { font-size: 1.5em; color: #69f0ae; font-weight: 700; }
+  .pay-option .label { font-size: 0.85em; color: #81c784; margin-top: 4px; }
+  .venmo-note { margin-top: 16px; background: #0d2b0d; border-left: 3px solid #4caf50; padding: 12px 16px; border-radius: 0 8px 8px 0; color: #a5d6a7; font-size: 0.92em; }
+  .venmo-note strong { color: #69f0ae; }
+
+  /* Schedule */
+  .day { margin-bottom: 20px; }
+  .day-header {
+    background: linear-gradient(90deg, #1b4d1b, #0d2b0d);
+    border-left: 4px solid #4caf50;
+    padding: 10px 16px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 12px;
+  }
+  .day-header h3 { color: #a5d6a7; font-size: 1.1em; }
+  .tee-time {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #0d2b0d;
+    border: 1px solid #2e5c2e;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+  }
+  .tee-time .time { color: #69f0ae; font-weight: 700; font-size: 1.05em; min-width: 55px; }
+  .tee-time .course { color: #c8e6c9; }
+  .tee-time .course span { display: block; font-size: 0.82em; color: #81c784; margin-top: 2px; }
+  .tee-time .icon { font-size: 1.3em; }
+  .pay-note { font-size: 0.8em; background: #1a3a1a; border: 1px solid #388e3c; color: #a5d6a7; padding: 6px 12px; border-radius: 6px; display: inline-block; margin-top: 4px; }
+
+  /* TBD */
+  .tbd-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #1a3a1a;
+    color: #81c784;
+  }
+  .tbd-item:last-child { border-bottom: none; }
+  .tbd-badge { background: #1a3a1a; border: 1px solid #388e3c; border-radius: 20px; padding: 3px 12px; font-size: 0.78em; color: #69f0ae; font-weight: 600; white-space: nowrap; }
+
+  /* Notes */
+  .note { display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid #1a3a1a; color: #a5d6a7; font-size: 0.93em; }
+  .note:last-child { border-bottom: none; }
+  .note .icon { font-size: 1.1em; margin-top: 1px; }
+
+  footer { text-align: center; padding: 20px; color: #388e3c; font-size: 0.85em; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="flag">⛳</div>
+  <h1>Dells Golf Trip</h1>
+  <p>Wisconsin Dells &nbsp;·&nbsp; June 11–14, 2026</p>
+</header>
+
+<div class="container">
+
+  <!-- Crew -->
+  <div class="card">
+    <h2>👥 The Crew</h2>
+    <div class="crew-grid">
+      <div class="crew-member">Matt<span class="handicap">Handicap: Testosterone</span></div>
+      <div class="crew-member">Al<span class="handicap">Handicap: A VooDew</span></div>
+      <div class="crew-member">Jordan<span class="handicap">Handicap: The WEED</span></div>
+      <div class="crew-member">Nate<span class="handicap">Handicap: EDM Music</span></div>
+      <div class="crew-member">David<span class="handicap">Handicap: Cat Guy</span></div>
+      <div class="crew-member">Mason<span class="handicap">Handicap: Foreign Companies</span></div>
+      <div class="crew-member">Trey<span class="handicap">Handicap: Reading</span></div>
+      <div class="crew-member">Keegan<span class="handicap">Handicap: A Horse Track</span></div>
+    </div>
+  </div>
+
+  <!-- Lodging -->
+  <div class="card">
+    <h2>🏠 Lodging</h2>
+    <div class="lodging-amount">$560 <span style="font-size:0.45em; color:#81c784;">per person</span></div>
+    <div class="venmo-note">
+      💸 Pay via <strong>Kayla's Venmo</strong> or next time you see me.
+    </div>
+    <div class="venmo-note" style="margin-top:10px;">
+      🏠 <a href="https://www.vrbo.com/7195597ha" target="_blank" style="color:#69f0ae; font-weight:700;">View the VRBO Listing</a>
+    </div>
+  </div>
+
+  <!-- Schedule -->
+  <div class="card">
+    <h2>🗓️ Golf Schedule</h2>
+
+    <div class="day">
+      <div class="day-header"><h3>Friday, June 12 — Wild Rock Golf Club</h3></div>
+      <div class="tee-time">
+        <span class="icon">⛳</span>
+        <span class="time">8:50 & 9:00 AM</span>
+        <div class="course">Wild Rock Golf Club<span>856 Canyon Rd, Wisconsin Dells · ~6 min from the Airbnb</span></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-header"><h3>Saturday, June 13 — Trappers Turn Golf Club</h3></div>
+      <div class="tee-time">
+        <span class="icon">⛳</span>
+        <span class="time">8:50 & 9:00 AM</span>
+        <div class="course">Trappers Turn<span>Lake / Canyon Course · 2955 Wisconsin Dells Pkwy · ~7 min from the Airbnb</span></div>
+      </div>
+      <div class="tee-time">
+        <span class="icon">⛳</span>
+        <span class="time">3:05 & 3:15 PM</span>
+        <div class="course">Trappers Turn<span>Arbor / Lake Course · 2955 Wisconsin Dells Pkwy · ~7 min from the Airbnb</span></div>
+      </div>
+    </div>
+
+    <div class="pay-note">💳 Golf fees paid at the course &nbsp;·&nbsp; Thanks Nate for booking!</div>
+  </div>
+
+  <!-- TBD -->
+  <div class="card">
+    <h2>📋 Still Being Planned</h2>
+    <div class="tbd-item">
+      <span class="tbd-badge">TBD</span>
+      Thursday Golf - A Round On The Way Up?
+    </div>
+    <div class="tbd-item">
+      <span class="tbd-badge">TBD</span>
+      A Par 3 To End The Day?
+    </div>
+    <div class="tbd-item">
+      <span class="tbd-badge">TBD</span>
+      Thursday Carpool And Departure Times
+    </div>
+    <div class="tbd-item">
+      <span class="tbd-badge">TBD</span>
+      What We Need To Bring - Food, Drinks, Etc.
+    </div>
+  </div>
+
+  <!-- Airbnb Questions -->
+  <div class="card">
+    <h2>🏡 VRBO Questions</h2>
+    <div class="note"><span class="icon">🪵</span> Is firewood provided?</div>
+  </div>
+
+  <!-- Notes -->
+  <div class="card">
+    <h2>📝 Good to Know</h2>
+    <div class="note"><span class="icon">🔄</span> Tee times can be adjusted or cancelled.</div>
+  </div>
+
+</div>
+
+<footer>Dells Golf Trip · June 2026 · Let's get some birdies 🐦</footer>
+
+</body>
+</html>
