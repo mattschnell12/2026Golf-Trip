@@ -74,21 +74,24 @@
     font-style: italic;
   }
 
-  /* Lodging */
-  .lodging-amount { font-size: 2.2em; color: #66bb6a; font-weight: 700; }
-  .lodging-sub { color: #81c784; margin: 6px 0 16px; }
-  .pay-options { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
-  .pay-option {
+  /* Total Owed */
+  .total-amount { font-size: 3em; color: #69f0ae; font-weight: 700; }
+  .total-sub { color: #81c784; margin: 4px 0 20px; font-size: 1em; }
+  .breakdown-grid { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+  .breakdown-item {
     flex: 1;
-    min-width: 200px;
+    min-width: 140px;
     background: #0d2b0d;
     border: 1px solid #388e3c;
     border-radius: 10px;
-    padding: 16px;
+    padding: 14px;
     text-align: center;
   }
-  .pay-option .amount { font-size: 1.5em; color: #69f0ae; font-weight: 700; }
-  .pay-option .label { font-size: 0.85em; color: #81c784; margin-top: 4px; }
+  .breakdown-item .b-amount { font-size: 1.3em; color: #a5d6a7; font-weight: 700; }
+  .breakdown-item .b-label { font-size: 0.8em; color: #81c784; margin-top: 4px; }
+
+  /* Lodging */
+  .lodging-amount { font-size: 2.2em; color: #66bb6a; font-weight: 700; }
   .venmo-note { margin-top: 16px; background: #0d2b0d; border-left: 3px solid #4caf50; padding: 12px 16px; border-radius: 0 8px 8px 0; color: #a5d6a7; font-size: 0.92em; }
   .venmo-note strong { color: #69f0ae; }
 
@@ -116,7 +119,7 @@
   .tee-time .course { color: #c8e6c9; }
   .tee-time .course span { display: block; font-size: 0.82em; color: #81c784; margin-top: 2px; }
   .tee-time .icon { font-size: 1.3em; }
-  .pay-note { font-size: 0.8em; background: #1a3a1a; border: 1px solid #388e3c; color: #a5d6a7; padding: 6px 12px; border-radius: 6px; display: inline-block; margin-top: 4px; }
+  .pay-note { font-size: 0.85em; background: #1a3a1a; border: 1px solid #388e3c; color: #a5d6a7; padding: 10px 14px; border-radius: 6px; display: block; margin-top: 8px; line-height: 1.5; }
 
   /* TBD */
   .tbd-item {
@@ -163,14 +166,31 @@
     </div>
   </div>
 
+  <!-- Total Owed -->
+  <div class="card">
+    <h2>💰 Total Owed to Matt</h2>
+    <div class="total-amount">$752</div>
+    <div class="total-sub">per person</div>
+    <div class="breakdown-grid">
+      <div class="breakdown-item">
+        <div class="b-amount">$560</div>
+        <div class="b-label">Lodging</div>
+      </div>
+      <div class="breakdown-item">
+        <div class="b-amount">$192</div>
+        <div class="b-label">Golf Package (Trappers + Wild Rock)</div>
+      </div>
+    </div>
+    <div class="venmo-note">
+      💸 Pay via <strong>Kayla's Venmo</strong> or next time you see me.
+    </div>
+  </div>
+
   <!-- Lodging -->
   <div class="card">
     <h2>🏠 Lodging</h2>
     <div class="lodging-amount">$560 <span style="font-size:0.45em; color:#81c784;">per person</span></div>
-    <div class="venmo-note">
-      💸 Pay via <strong>Kayla's Venmo</strong> or next time you see me.
-    </div>
-    <div class="venmo-note" style="margin-top:10px;">
+    <div class="venmo-note" style="margin-top:16px;">
       🏠 <a href="https://www.vrbo.com/7195597ha" target="_blank" style="color:#69f0ae; font-weight:700;">View the VRBO Listing</a>
     </div>
   </div>
@@ -202,7 +222,7 @@
       </div>
     </div>
 
-    <div class="pay-note">💳 Golf fees paid at the course &nbsp;·&nbsp; Thanks Nate for booking!</div>
+    <div class="pay-note">🤝 We secured a deal that gets us a round with range, carts, and greens fees at both Trappers Turn and Wild Rock for <strong style="color:#69f0ae;">$192 total</strong>. Other rounds will be paid at the course. &nbsp;·&nbsp; Thanks Nate for booking!</div>
   </div>
 
   <!-- TBD -->
